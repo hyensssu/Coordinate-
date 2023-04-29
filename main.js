@@ -1,38 +1,20 @@
-body {
-  background-color: black;
-}
+const horizontal = document.querySelector('.horizontal');
 
-.line {
-  position: absolute;
-  background-color: white;
-}
+const vertical = document.querySelector('.vertical');
 
-.horizontal {
-  width: 100%;
-  height: 3px;
-  top: 50%;
-  transform: translate(0, -50%);
-}
+const target = document.querySelector('.target');
 
-.vertical {
-  width: 3px;
-  height: 100%;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
+const tag = document.querySelector('.tag');
 
-.target {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+document.addEventListener('mousemove', (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
 
-.tag {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(20px, 20px);
-  font-size: 30px;
-}
+  vertical.style.left = `${x}px`;
+  horizontal.style.top = `${y}px`;
+  target.style.left = `${x}px`;
+  target.style.top = `${y}px`;
+  tag.style.left = `${x}px`;
+  tag.style.top = `${y}px`;
+  tag.innerHTML = `${x}px, ${y}px`;
+});
